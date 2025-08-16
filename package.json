@@ -1,0 +1,8 @@
+{
+  "name": "ai-project",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "start": "echo 'workspace root'"
+  }
+}
