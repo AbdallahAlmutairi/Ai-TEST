@@ -48,5 +48,9 @@ def analyze(
         "indicators": indicators,
         "timestamp": datetime.utcnow(),
         "model_version": MODEL_VERSION,
-        "disclaimer": "For research and education only. Not financial advice." if locale != "ar" else "لأغراض البحث والتعليم فقط. ليست نصيحة استثمارية.",
+        "disclaimer": (
+            "For research and education only. Not financial advice."
+            if locale != "ar"
+            else "لأغراض البحث والتعليم فقط. ليست نصيحة استثمارية."
+        ),
     }

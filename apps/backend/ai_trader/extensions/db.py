@@ -1,1 +1,8 @@
-from . import db
+"""Database extension instance."""
+
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+
+__all__ = ["db"]
+

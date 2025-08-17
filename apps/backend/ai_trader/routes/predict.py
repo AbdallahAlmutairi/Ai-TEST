@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from ai_trader.services.ai.forecast import predict
+from ..services.ai.forecast import predict
 
 bp = Blueprint('predict', __name__, url_prefix='/api')
 

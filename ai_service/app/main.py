@@ -39,7 +39,13 @@ def ai_analyze(req: AnalyzeRequest) -> AnalyzeResponse:
 
 @app.post("/ai/signals", response_model=SignalsResponse)
 def ai_signals(req: SignalsRequest) -> SignalsResponse:
-    signals = []
+    base_disclaimer = (
+        "For research and education only. Not financial advice."
+        if req.locale != "ar"
+        else "لأغراض البحث والتعليم فقط. ليست نصيحة استثمارية."
+    )
+    signals: list[Signal] = []
+    last_res = None
     for sym in req.symbols:
         res = infer.analyze(sym, interval=req.interval, locale=req.locale)
         if req.minConfidence is not None and res["confidence"] < req.minConfidence:
@@ -53,7 +59,8 @@ def ai_signals(req: SignalsRequest) -> SignalsResponse:
                 updatedAt=res["timestamp"],
             )
         )
-    disclaimer = res["disclaimer"] if signals else "For research and education only. Not financial advice."
+        last_res = res
+    disclaimer = last_res["disclaimer"] if signals else base_disclaimer
     return SignalsResponse(signals=signals, disclaimer=disclaimer)
 
 

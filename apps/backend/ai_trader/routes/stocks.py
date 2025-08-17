@@ -1,6 +1,6 @@
 from flask import Blueprint, request
-from ai_trader.services.data_providers.yfinance_client import get_quote, get_history
-from ai_trader.services.indicators import compute_indicators
+from ..services.data_providers.yfinance_client import get_quote, get_history
+from ..services.indicators import compute_indicators
 
 bp = Blueprint('stocks', __name__, url_prefix='/api/stocks')
 
