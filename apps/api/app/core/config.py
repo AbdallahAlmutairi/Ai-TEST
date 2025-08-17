@@ -1,9 +1,9 @@
-"""Application configuration using Pydantic settings."""
+"""Application configuration for the API."""
 
-from pydantic import BaseSettings
+from pydantic import BaseModel
 
 
-class Settings(BaseSettings):
+class Settings(BaseModel):
     """Simple settings object used by the application."""
 
     database_url: str = "sqlite:///./test.db"
