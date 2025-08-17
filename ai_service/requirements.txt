@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pandas
+numpy
+scikit-learn
+ta
+joblib
+backtesting
+pydantic
+python-dotenv
+redis
+httpx
