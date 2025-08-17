@@ -14,6 +14,9 @@ app.include_router(news.router)
 app.include_router(recs.router)
 app.include_router(stream.router)
 
+# Ensure the database exists even if startup events are not triggered
+init_db()
+
 
 @app.on_event("startup")
 def _startup() -> None:

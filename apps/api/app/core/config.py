@@ -1,14 +1,14 @@
-"""Application configuration using Pydantic settings."""
+"""Minimal application settings without external dependencies."""
 
-from pydantic import BaseSettings
+from dataclasses import dataclass
 
 
-class Settings(BaseSettings):
-    """Simple settings object used by the application."""
-
+@dataclass
+class Settings:
     database_url: str = "sqlite:///./test.db"
     secret_key: str = "change-me"
     token_algorithm: str = "HS256"
 
 
 settings = Settings()
+
