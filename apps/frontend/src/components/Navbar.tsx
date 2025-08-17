@@ -1,3 +1,14 @@
+'use client';
+
+import LanguageToggle from './LanguageToggle';
+import { useLanguage } from '../lib/i18n/LanguageProvider';
+
 export default function Navbar() {
-  return <nav>Navbar</nav>;
+  const { dict } = useLanguage();
+  return (
+    <nav>
+      <span>{dict.greeting}</span>
+      <LanguageToggle />
+    </nav>
+  );
 }
